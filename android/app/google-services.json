@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560771643704",
+    "project_id": "campusbite-d1e2b",
+    "storage_bucket": "campusbite-d1e2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560771643704:android:1965782a9ae887c1a4e9cd",
+        "android_client_info": {
+          "package_name": "com.example.campusbite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR0b6QZz1pbyL-QzH111ABWSIc963P3Pg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
