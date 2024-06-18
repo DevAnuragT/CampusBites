@@ -24,10 +24,13 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     Align(
                       alignment: Alignment.topLeft,
-                      child: CircleAvatar(
-                        radius: 45,
-                        backgroundImage: AssetImage('assets/logo2.jpg'),
-                        backgroundColor: Colors.white,
+                      child: Hero( //use in login screen for logo
+                        tag: 'logo',
+                        child: CircleAvatar(
+                          radius: 45,
+                          backgroundImage: AssetImage('assets/logo2.jpg'),
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                   ],
