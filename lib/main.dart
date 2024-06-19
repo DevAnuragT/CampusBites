@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:campusbite/screens/welcome.dart';
+import 'package:campusbite/screens/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +16,7 @@ class CampusBites extends StatelessWidget {
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
-        // LoginScreen.id: (context) => LoginScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
         // RegistrationScreen.id: (context) => RegistrationScreen(),
       },
     );

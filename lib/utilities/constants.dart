@@ -10,6 +10,7 @@ const kTitleStyle = TextStyle(
     wordSpacing: 2);
 
 const kColorTheme = Color(0xFFCC400E);
+const kBackgroundColor=Color(0xFFF2F2F2);
 
 const kButtonText = TextStyle(
   color: kColorTheme,
@@ -28,3 +29,5 @@ ButtonStyle kButtonStyle = ButtonStyle(
     ),
   ),
 );
+
+const double kButtonSize=300;
