@@ -52,37 +52,40 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              Expanded(
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: 85,
-                      bottom: 110,
-                      child: Image.asset(
-                        'assets/icons/pizza.png',
-                        width: 150,
-                        height: 150,
+              Flexible(
+                child: Container(
+                  height: 270,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 85,
+                        bottom: 110,
+                        child: Image.asset(
+                          'assets/icons/pizza.png',
+                          width: 150,
+                          height: 150,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      left: 170,
-                      bottom: 30,
-                      child: Image.asset(
-                        'assets/icons/hamburger.png',
-                        width: 160,
-                        height: 160,
+                      Positioned(
+                        left: 170,
+                        bottom: 30,
+                        child: Image.asset(
+                          'assets/icons/hamburger.png',
+                          width: 160,
+                          height: 160,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      left: 40,
-                      bottom: 0,
-                      child: Image.asset(
-                        'assets/icons/biryani.png',
-                        width: 170,
-                        height: 170,
+                      Positioned(
+                        left: 40,
+                        bottom: 0,
+                        child: Image.asset(
+                          'assets/icons/biryani.png',
+                          width: 170,
+                          height: 170,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
