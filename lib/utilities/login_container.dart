@@ -30,6 +30,7 @@ class _LoginContainerState extends State<LoginContainer> {
                   if(value!.isEmpty){
                     return 'Email Required';
                   }
+                  // return null;
 
                 },
 
