@@ -1,9 +1,9 @@
 import 'package:campusbite/utilities/constants.dart';
-import 'package:campusbite/utilities/login_container.dart';
-import 'package:campusbite/utilities/signup_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../widgets/signup_container.dart';
 
 class LoginScreen extends StatefulWidget {
   static const id = 'login_screen';
@@ -38,9 +38,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   child: Center(
-                    child: Image.asset(
-                      'assets/logo2.jpg',
-                      height: 250,
+                    child: Hero(
+                      tag: 'logo',
+                      child: Image.asset(
+                        'assets/logo2.jpg',
+                        height: 250,
+                      ),
                     ),
                   ),
                 ),
@@ -119,11 +122,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                       Container(
-                        // child:if(isLoginSelected==true){
-
-
-                        child: !isLoginSelected ? SignupContainer():LoginContainer(),
-
+                        //child: !isLoginSelected ? SignupContainer():LoginContainer(),
+                        child: SignupContainer(isLoginSelected? 'Log In' : 'Sign Up'),
                       )
 
                     ],

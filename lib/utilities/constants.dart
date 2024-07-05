@@ -32,6 +32,10 @@ ButtonStyle kButtonStyle = ButtonStyle(
 
 const double kButtonSize=300;
 
+const kAppBarStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: 'SFRounded',
+    fontWeight: FontWeight.bold);
 
 
 

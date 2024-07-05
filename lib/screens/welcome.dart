@@ -1,4 +1,4 @@
-import 'package:campusbite/screens/login.dart';
+import 'package:campusbite/screens/authentication/login.dart';
 import 'package:flutter/material.dart';
 import 'package:campusbite/utilities/constants.dart';
 
@@ -55,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
               Flexible(
                 child: Container(
-                  height: 270,
+                  height: 320,
                   child: Stack(
                     children: [
                       Positioned(
@@ -95,7 +95,7 @@ class WelcomeScreen extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    width: 40,
+                    width: 60,
                   ),
                   Expanded(
                     child: TextButton(
@@ -111,7 +111,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 40,
+                    width: 60,
                   ),
                 ],
               ),
