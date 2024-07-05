@@ -19,6 +19,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
   final formKey = GlobalKey<FormState>();
   String _selectedAddress = "IVH";
   String _phoneNum="+91";
+  bool _isLoading=false;
   final List<String> _addresses = ["IVH", "GH", "BH-1", "BH-2", "BH-3"];
 
   @override
@@ -69,14 +70,21 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 }).toList(),
               ),
               SizedBox(height: 20),
+              _isLoading? CircularProgressIndicator(color: kColorTheme,):
               ElevatedButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
+                    setState(() {
+                      _isLoading=true;
+                    });
                     _phoneNum=_phoneNum+_phoneController.text.trim();
                     print("Phone Number: " + _phoneNum);
                     formKey.currentState!.save();
                     _verifyPhoneNumber(context);
                     _phoneNum="+91";
+                    setState(() {
+                      _isLoading=false;
+                    });
                   }
                 },
                 style: ElevatedButton.styleFrom(

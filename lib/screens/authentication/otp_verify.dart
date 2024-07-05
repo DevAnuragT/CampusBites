@@ -25,6 +25,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
   bool _isResendButtonEnabled = false;
   late Timer _timer;
   int _start = 30;
+  bool _isLoading=false;
 
   @override
   void initState() {
@@ -71,6 +72,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
               decoration: InputDecoration(labelText: 'Enter OTP'),
             ),
             SizedBox(height: 20),
+            _isLoading? CircularProgressIndicator(color: kColorTheme,):
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(100, 50), // Set width and height
@@ -80,7 +82,15 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                       BorderRadius.circular(20.0), // Set border radius
                 ),
               ),
-              onPressed: () => _verifyOTP(context),
+              onPressed: () {
+                setState(() {
+                  _isLoading=true;
+                });
+                _verifyOTP(context);
+                setState(() {
+                  _isLoading=false;
+                });
+              },
               child: Text(
                 'Verify OTP',
                 style: kButtonText.copyWith(color: Colors.white),
@@ -97,7 +107,15 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                             BorderRadius.circular(20.0), // Set border radius
                       ),
                     ),
-                    onPressed: () => _resendOTP(),
+                    onPressed:_isLoading ? null : () {
+                      setState(() {
+                        _isLoading=true;
+                      });
+                      _resendOTP();
+                      setState(() {
+                        _isLoading=false;
+                      });
+                    },
                     child: Text(
                       'Resend OTP',
                       style: TextStyle(color: kColorTheme),

@@ -12,6 +12,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _auth = FirebaseAuth.instance;
   final _emailController = TextEditingController();
+  bool _isLoading=false;
   String? _errorMessage;
 
   void _resetPassword() async {
@@ -20,6 +21,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Password reset link sent to your email.'),
+          backgroundColor: kColorTheme,
         ),
       );
       Navigator.pop(context); // Go back to the login screen
@@ -68,7 +70,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       BorderRadius.circular(20.0), // Set border radius
                 ),
               ),
-              onPressed: _resetPassword,
+              onPressed:_isLoading? null : (){
+                setState(() {
+                  _isLoading = true;
+                });
+                _resetPassword();
+                setState(() {
+                  _isLoading = false;
+                });
+              },
               child: Text(
                 'Send Reset Link',
                 style: TextStyle(color: Colors.white),

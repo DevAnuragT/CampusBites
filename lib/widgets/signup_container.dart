@@ -24,6 +24,8 @@ class _SignupContainerState extends State<SignupContainer> {
   TextEditingController _passController = TextEditingController();
   String email = "";
   String password = "";
+  bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -74,7 +76,7 @@ class _SignupContainerState extends State<SignupContainer> {
                     }
                   },
                 ),
-                if(widget.state=='Log In')
+                if (widget.state == 'Log In')
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -93,11 +95,14 @@ class _SignupContainerState extends State<SignupContainer> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () async {
+                  onPressed: _isLoading ? null : () async {
                     if (formKey.currentState!.validate()) {
+                      setState(() {
+                        _isLoading = true;
+                      });
                       email = _emailController.text.trim();
                       password = _passController.text.trim();
-                      //login/signup
+                      // login/signup
                       Authorisation auth = Authorisation();
                       User? user = await auth.signInWithEmailAndPassword(
                           email, password);
@@ -112,15 +117,14 @@ class _SignupContainerState extends State<SignupContainer> {
                           Navigator.pushNamedAndRemoveUntil(
                               context,
                               HomeScreen.id,
-                              (route) => false); //to be updated
+                                  (route) => false); //to be updated
                         } else {
                           Navigator.pushNamedAndRemoveUntil(
                               context,
                               PhoneNumberPage.id,
-                              (route) => false); //to be updated
+                                  (route) => false); //to be updated
                         }
-                      }
-                      else {
+                      } else {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(
                             'User does not exist. Registering Instead.',
@@ -141,20 +145,23 @@ class _SignupContainerState extends State<SignupContainer> {
                             Navigator.pushNamedAndRemoveUntil(
                                 context,
                                 HomeScreen.id,
-                                (route) => false); //to be updated
+                                    (route) => false); //to be updated
                           } else {
                             Navigator.pushNamedAndRemoveUntil(
                                 context,
                                 PhoneNumberPage.id,
-                                (route) => false); //to be updated
+                                    (route) => false); //to be updated
                           }
                         }
 
                         Navigator.pushNamedAndRemoveUntil(
                             context,
                             PhoneNumberPage.id,
-                            (route) => false); //to be updated
+                                (route) => false); //to be updated
                       }
+                      setState(() {
+                        _isLoading = false;
+                      });
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -162,10 +169,14 @@ class _SignupContainerState extends State<SignupContainer> {
                     backgroundColor: kColorTheme, // Change button color
                     shape: RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.circular(20.0), // Set border radius
+                      BorderRadius.circular(20.0), // Set border radius
                     ),
                   ),
-                  child: Text(
+                  child: _isLoading
+                      ? CircularProgressIndicator(
+                    color: Colors.white,
+                  )
+                      : Text(
                     '${widget.state}',
                     style: TextStyle(color: Colors.white),
                   ),
@@ -177,16 +188,11 @@ class _SignupContainerState extends State<SignupContainer> {
         SizedBox(
           height: 30,
         ),
-        // SizedBox(
-        //   height: 1,
-        //   width: 300,
-        //   child: Container(
-        //     color: Colors.grey,
-        //   ),
-        // ),
-
         GestureDetector(
-          onTap: () async {
+          onTap: _isLoading  ? null : () async {
+            setState(() {
+              _isLoading = true;
+            });
             Authorisation auth = Authorisation();
             User? user = await auth.googleSignIn();
             if (user != null) {
@@ -208,6 +214,9 @@ class _SignupContainerState extends State<SignupContainer> {
                 backgroundColor: kColorTheme,
               ));
             }
+            setState(() {
+              _isLoading = false;
+            });
           },
           child: SizedBox(
             width: 270,
