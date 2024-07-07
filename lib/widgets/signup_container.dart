@@ -1,5 +1,6 @@
 import 'package:campusbite/model/users.dart';
 import 'package:campusbite/screens/authentication/mobile.dart';
+import 'package:campusbite/screens/profile.dart';
 import 'package:campusbite/screens/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -204,7 +205,7 @@ class _SignupContainerState extends State<SignupContainer> {
                     context, PhoneNumberPage.id, (route) => false);
               else
                 Navigator.pushNamedAndRemoveUntil(
-                    context, HomeScreen.id, (route) => false);
+                    context, ProfilePage.id, (route) => false);
             } else {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content: Text(

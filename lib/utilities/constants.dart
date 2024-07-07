@@ -10,7 +10,7 @@ const kTitleStyle = TextStyle(
     wordSpacing: 2);
 
 const kColorTheme = Color(0xFFCC400E);
-const kBackgroundColor=Color(0xFFF2F2F2);
+const kBackgroundColor = Color(0xFFF2F2F2);
 
 const kButtonText = TextStyle(
   color: kColorTheme,
@@ -30,12 +30,28 @@ ButtonStyle kButtonStyle = ButtonStyle(
   ),
 );
 
-const double kButtonSize=300;
+const double kButtonSize = 300;
 
 const kAppBarStyle = TextStyle(
-    color: Colors.white,
-    fontFamily: 'SFRounded',
-    fontWeight: FontWeight.bold);
+    color: Colors.white, fontFamily: 'SFRounded', fontWeight: FontWeight.bold);
 
+const kLargeText = TextStyle(
+  color: Colors.black,
+  fontFamily: 'SFRounded',
+  fontWeight: FontWeight.w700,
+  fontSize: 32,
+  letterSpacing: 1.3,
+  wordSpacing: 2,
+);
 
-
+var kProfileContainer = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.circular(18.0),
+  boxShadow: [
+    BoxShadow(
+      color: Colors.grey.withOpacity(0.1),
+      spreadRadius: 3,
+      blurRadius: 5,
+    ),
+  ],
+);
