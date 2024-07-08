@@ -3,7 +3,8 @@ import 'package:campusbite/screens/authentication/forget_password.dart';
 import 'package:campusbite/screens/authentication/login.dart';
 import 'package:campusbite/screens/authentication/mobile.dart';
 import 'package:campusbite/screens/home.dart';
-import 'package:campusbite/screens/profile.dart';
+import 'package:campusbite/screens/profile/edit_profile.dart';
+import 'package:campusbite/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:campusbite/screens/welcome.dart';
@@ -31,6 +32,7 @@ class CampusBites extends StatelessWidget {
         HomeScreen.id : (context) => HomeScreen(),
         ForgotPasswordScreen.id : (context) => ForgotPasswordScreen(),
         ProfilePage.id : (context) => ProfilePage(),
+        EditProfilePage.id : (context) => EditProfilePage(),
       },
     );
   }

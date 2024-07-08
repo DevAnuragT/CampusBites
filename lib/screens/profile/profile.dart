@@ -1,3 +1,4 @@
+import 'package:campusbite/screens/profile/edit_profile.dart';
 import 'package:campusbite/utilities/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -61,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    // Handle change button press
+                    Navigator.pushNamed(context, EditProfilePage.id);
                   },
                   child: Text(
                     'change',

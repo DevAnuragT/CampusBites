@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:campusbite/screens/profile/profile.dart';
 import 'package:campusbite/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -82,7 +83,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                       BorderRadius.circular(20.0), // Set border radius
                 ),
               ),
-              onPressed: () {
+              onPressed: _isLoading? null : () {
                 setState(() {
                   _isLoading=true;
                 });
@@ -160,7 +161,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
 
   void _navigateToHome(BuildContext context) {
     // Navigate to home page or any other page
-    Navigator.pushReplacementNamed(context, HomeScreen.id);
+    Navigator.pushReplacementNamed(context, ProfilePage.id);
   }
 
   void _resendOTP() async {

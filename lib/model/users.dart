@@ -6,7 +6,7 @@ class UserDetails {
   UserDetails({required this.user});
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  void registerUser() async {
+  Future<void> registerUser() async {
     final userDoc = await _firestore.collection('users').doc(user.uid).get();
     if (!userDoc.exists) {
       await _firestore.collection('users').doc(user.uid).set({

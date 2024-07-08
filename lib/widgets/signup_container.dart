@@ -1,6 +1,6 @@
 import 'package:campusbite/model/users.dart';
 import 'package:campusbite/screens/authentication/mobile.dart';
-import 'package:campusbite/screens/profile.dart';
+import 'package:campusbite/screens/profile/profile.dart';
 import 'package:campusbite/screens/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -196,9 +196,9 @@ class _SignupContainerState extends State<SignupContainer> {
             });
             Authorisation auth = Authorisation();
             User? user = await auth.googleSignIn();
-            if (user != null) {
+            if (user != null){
               UserDetails details = UserDetails(user: user);
-              details.registerUser();
+              await details.registerUser();
               bool success = await details.getNumber();
               if (success == false)
                 Navigator.pushNamedAndRemoveUntil(
