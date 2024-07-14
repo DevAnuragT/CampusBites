@@ -2,6 +2,7 @@ import 'package:campusbite/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
+import '../../utilities/constants.dart';
 import 'login.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
@@ -60,7 +61,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Verification email resent.'),
-          duration: Duration(seconds: 2),
+          duration: Duration(seconds: 2), backgroundColor: kColorTheme
         ),
       );
       setState(() {
@@ -73,6 +74,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         SnackBar(
           content: Text('Failed to resend verification email.'),
           duration: Duration(seconds: 2),
+            backgroundColor: kColorTheme
         ),
       );
     }

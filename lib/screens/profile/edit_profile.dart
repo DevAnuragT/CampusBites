@@ -126,7 +126,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       },
       verificationFailed: (FirebaseAuthException e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Verification failed. Please try again.')),
+          SnackBar(content: Text('Verification failed. Please try again.'),backgroundColor: kColorTheme,),
         );
       },
       codeSent: (String verificationId, int? resendToken) {
@@ -191,11 +191,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
       print(user!.phoneNumber);
       await _updateUserField('phone', user!.phoneNumber!);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Phone number updated successfully.')),
+        SnackBar(content: Text('Phone number updated successfully.'),backgroundColor: kColorTheme),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Phone number update failed. Please try again.')),
+        SnackBar(content: Text('Phone number update failed. Please try again.'),backgroundColor: kColorTheme),
       );
     }
   }

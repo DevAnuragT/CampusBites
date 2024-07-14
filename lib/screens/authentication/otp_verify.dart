@@ -142,7 +142,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
       _navigateToHome(context);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Invalid OTP. Please try again.')),
+        SnackBar(content: Text('Invalid OTP. Please try again.'),backgroundColor: kColorTheme),
       );
     }
   }
@@ -181,7 +181,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
       },
       verificationFailed: (FirebaseAuthException e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Verification failed. Please try again.')),
+          SnackBar(content: Text('Verification failed. Please try again.'),backgroundColor: kColorTheme),
         );
       },
       codeSent: (String verificationId, int? resendToken) {
